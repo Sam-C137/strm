@@ -248,8 +248,41 @@ code {
 
 @font-face {
 	font-family: "Overused Grotesk";
-	src: url("../public/fonts/OverusedGrotesk-VF.woff2")
-		format("woff2 supports variations"),
-		url("../public/fonts/OverusedGrotesk-VF.woff2") format("woff2-variations");
+	src: url("/fonts/OverusedGrotesk-VF.woff2")
+		format("woff2 supports variations"), url("/fonts/OverusedGrotesk-VF.woff2")
+		format("woff2-variations");
 	font-weight: 300 900;
+}
+
+.goldtext {
+	--gold-one: rgba(211, 159, 90, 1);
+	--gold-two: rgba(149, 107, 53, 1);
+	--gold-three: rgba(172, 125, 69, 1);
+	--shadow-line-thickness: .5px;
+	--shadow-line-thickness-2: 1px;
+	--shadow-line-thickness-3: .0005em;
+	-webkit-filter: drop-shadow(
+			calc(var(--shadow-line-thickness-2) * -1) var(--shadow-line-thickness-2) 0
+				var(--gold-two)
+		)
+		drop-shadow(var(--shadow-line-thickness-2) 0 0 var(--gold-three));
+	filter: drop-shadow(
+			calc(var(--shadow-line-thickness-2) * -1) var(--shadow-line-thickness-2) 0
+				var(--gold-two)
+		)
+		drop-shadow(var(--shadow-line-thickness-2) 0 0 var(--gold-three));
+	background: linear-gradient(
+		45deg,
+		#956732,
+		#d69443,
+		#f2b96e,
+		#fcdd84,
+		#f2b96e,
+		#d69443,
+		#956732,
+		#ca9044,
+		#f2b963
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }

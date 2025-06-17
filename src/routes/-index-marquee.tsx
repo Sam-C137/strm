@@ -8,13 +8,13 @@ interface MarqueeItemProps {
 
 function MarqueeItem({ album }: MarqueeItemProps) {
 	return (
-		<figure className="hover:scale-105 cursor-pointer duration-300 ease-in-out">
+		<figure className="hover:scale-105 rounded-lg cursor-pointer duration-300 ease-in-out">
 			<img
 				src={album.artwork.url
 					.replace("{w}", `${album.artwork.width}`)
 					.replace("{h}", `${album.artwork.height}`)}
 				alt={album.name}
-				className="size-28 sm:size-36 md:size-44 object-cover"
+				className="size-30 sm:size-38 md:size-46 rounded-[inherit] object-cover"
 			/>
 			<figcaption className="sr-only">{album.name}</figcaption>
 		</figure>
@@ -27,7 +27,7 @@ export function IndexMarquee() {
 	const { data: thirdRow } = useGetLandingPageMarquee(3);
 
 	return (
-		<div className="relative -mt-8 flex w-full flex-col items-center justify-center overflow-hidden">
+		<div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
 			<Marquee pauseOnHover className="[--duration:300s]" repeat={1}>
 				{firstRow?.albums.map((album) => (
 					<MarqueeItem key={album.name} album={album} />

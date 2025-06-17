@@ -8,9 +8,6 @@ dependencies:
   '@iconify-json/solar':
     specifier: ^1.2.2
     version: 1.2.2
-  '@radix-ui/react-slot':
-    specifier: ^1.2.3
-    version: 1.2.3(@types/react@19.1.6)(react@19.1.0)
   '@tailwindcss/vite':
     specifier: ^4.0.6
     version: 4.1.7(vite@6.3.5)
