@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button.tsx";
 import { BreathingText } from "@/components/ui/text-breathing.tsx";
 import { useInterval } from "@/hooks/use-interval.ts";
+import { SpotifyLogin } from "@/lib/auth.ts";
 import { time } from "@/lib/constants.ts";
 import * as React from "react";
 
 export function IndexHeader() {
 	return (
-		<nav className="w-full sticky -mt-[42px] top-0 z-10 dark:bg-black bg-background flex items-center justify-center after:h-[40px] after:block after:absolute after:w-full after:bottom-[-16px] after:bg-background after:transition-all dark:after:bg-black after:z-[-1] after:blur-[8px]">
+		<nav className="w-full sticky -mt-[42px] top-0 z-20 dark:bg-black bg-background flex items-center justify-center after:h-[40px] after:block after:absolute after:w-full after:bottom-[-16px] after:bg-background after:transition-all dark:after:bg-black after:z-[-1] after:blur-[8px]">
 			<div className="w-full max-w-[1152px] flex flex-col">
 				<div className="w-full items-center relative flex justify-between p-[20px_22px_4px]">
 					<span className="font-icon flex items-center">
@@ -19,7 +20,13 @@ export function IndexHeader() {
 						/>
 						<Lightning />
 					</span>
-					<p className="font-semibold text-base text-primary">Sign In</p>
+					<button
+						onClick={SpotifyLogin}
+						type="button"
+						className="font-semibold text-base cursor-pointer text-primary"
+					>
+						Sign In
+					</button>
 				</div>
 				<div className="relative flex justify-start">
 					<div className="ml-6 w-max flex items-center gap-1">

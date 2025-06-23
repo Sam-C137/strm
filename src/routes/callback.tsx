@@ -19,7 +19,7 @@ export const Route = createFileRoute("/callback")({
 		navigate({
 			to: "/home",
 			replace: true,
-		});
+		}).catch(console.error);
 	},
 	validateSearch: (search: Record<string, string>): CallbackSearchParams => {
 		return {

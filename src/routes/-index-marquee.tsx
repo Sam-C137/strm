@@ -2,25 +2,6 @@ import { Marquee } from "@/components/ui/marquee";
 import { useGetLandingPageMarquee } from "@/hooks/api/marquee.ts";
 import type { MarqueeAlbumItem } from "@/lib/types.ts";
 
-interface MarqueeItemProps {
-	album: MarqueeAlbumItem;
-}
-
-function MarqueeItem({ album }: MarqueeItemProps) {
-	return (
-		<figure className="hover:scale-105 rounded-lg cursor-pointer duration-300 ease-in-out">
-			<img
-				src={album.artwork.url
-					.replace("{w}", `${album.artwork.width}`)
-					.replace("{h}", `${album.artwork.height}`)}
-				alt={album.name}
-				className="size-30 sm:size-38 md:size-46 rounded-[inherit] object-cover"
-			/>
-			<figcaption className="sr-only">{album.name}</figcaption>
-		</figure>
-	);
-}
-
 export function IndexMarquee() {
 	const { data: firstRow } = useGetLandingPageMarquee(1);
 	const { data: secondRow } = useGetLandingPageMarquee(2);
@@ -46,5 +27,24 @@ export function IndexMarquee() {
 			<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
 			<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 		</div>
+	);
+}
+
+interface MarqueeItemProps {
+	album: MarqueeAlbumItem;
+}
+
+function MarqueeItem({ album }: MarqueeItemProps) {
+	return (
+		<figure className="hover:scale-105 rounded-lg cursor-pointer duration-300 ease-in-out">
+			<img
+				src={album.artwork.url
+					.replace("{w}", `${album.artwork.width}`)
+					.replace("{h}", `${album.artwork.height}`)}
+				alt={album.name}
+				className="size-30 sm:size-38 md:size-46 rounded-[inherit] object-cover"
+			/>
+			<figcaption className="sr-only">{album.name}</figcaption>
+		</figure>
 	);
 }
