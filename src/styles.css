@@ -243,6 +243,10 @@ code {
 	}
 	body {
 		@apply bg-background text-foreground;
+		/*
+			use this for now playing bg and configure a variable --now-playing-bg for that
+			bg-gradient-to-r from-yellow-500/10 via-transparent to-yellow-500/10
+		*/
 	}
 }
 
@@ -255,7 +259,6 @@ code {
 }
 
 .goldtext {
-	/*@apply bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent*/
 	--gold-one: rgba(211, 159, 90, 1);
 	--gold-two: rgba(149, 107, 53, 1);
 	--gold-three: rgba(172, 125, 69, 1);

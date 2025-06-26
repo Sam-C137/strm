@@ -25,7 +25,7 @@ function Index() {
 	const isInView = useInView(ref, { once: true });
 
 	return (
-		<main className="min-h-dvh p-0 dark:bg-black grid text-center place-items-center w-full">
+		<main className="min-h-dvh p-0 bg-white dark:bg-black grid text-center place-items-center w-full">
 			<IndexHeader />
 			<Suspense
 				fallback={

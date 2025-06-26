@@ -1,4 +1,3 @@
-import { Command } from "lucide-react";
 import type * as React from "react";
 
 import { NavFooter } from "@/components/nav-footer.tsx";
@@ -12,24 +11,35 @@ import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
+	SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { Lightning } from "@/routes/-index-header.tsx";
+import { Link } from "@tanstack/react-router";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar variant="inset" {...props}>
 			<SidebarHeader className="px-6">
 				<SidebarMenu>
-					<SidebarMenuItem>
-						<SidebarMenuButton size="lg" asChild>
-							<a href="#">
-								<div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-									<Command className="size-4" />
+					<SidebarMenuItem className="flex justify-between items-center md:justify-normal">
+						<SidebarTrigger className="block md:hidden">
+							<i className="text-3xl text-primary icon-[solar--close-circle-line-duotone]" />
+						</SidebarTrigger>
+						<SidebarMenuButton
+							size="lg"
+							asChild
+							className="w-fit md:w-full gap-0 md:gap-2"
+						>
+							<Link to="/home">
+								<div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+									<Lightning />
 								</div>
-								<div className="grid flex-1 text-left text-sm leading-tight">
-									<span className="truncate font-medium">Acme Inc</span>
-									<span className="truncate text-xs">Enterprise</span>
+								<div className="grid -ml-2 flex-1 text-left text-sm leading-tight">
+									<span className="truncate font-medium font-icon text-base leading-tight">
+										Strm
+									</span>
 								</div>
-							</a>
+							</Link>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>

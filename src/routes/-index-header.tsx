@@ -51,7 +51,7 @@ export function IndexHeader() {
 	);
 }
 
-function Lightning() {
+export function Lightning() {
 	const [id, setId] = React.useState(crypto.randomUUID());
 	useInterval(() => {
 		setId(crypto.randomUUID());

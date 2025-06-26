@@ -1,11 +1,12 @@
 import { Marquee } from "@/components/ui/marquee";
-import { useGetLandingPageMarquee } from "@/hooks/api/marquee.ts";
+import { MarqueeData } from "@/lib/queries/marquee.ts";
 import type { MarqueeAlbumItem } from "@/lib/types.ts";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 export function IndexMarquee() {
-	const { data: firstRow } = useGetLandingPageMarquee(1);
-	const { data: secondRow } = useGetLandingPageMarquee(2);
-	const { data: thirdRow } = useGetLandingPageMarquee(3);
+	const { data: firstRow } = useSuspenseQuery(MarqueeData.query({ page: 1 }));
+	const { data: secondRow } = useSuspenseQuery(MarqueeData.query({ page: 2 }));
+	const { data: thirdRow } = useSuspenseQuery(MarqueeData.query({ page: 3 }));
 
 	return (
 		<div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
