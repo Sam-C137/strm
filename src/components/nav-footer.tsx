@@ -1,3 +1,4 @@
+import { PreferencesDialog } from "@/components/preferences-dialog.tsx";
 import {
 	Avatar,
 	AvatarFallback,
@@ -50,13 +51,7 @@ export function NavFooter() {
 									<div className="text-xs">foo@gmail.com</div>
 								</div>
 							</div>
-							<Button
-								className="border-b gap-4 w-full flex justify-start"
-								variant="ghost"
-							>
-								<i className="icon-[solar--settings-bold] size-4" />
-								Preferences
-							</Button>
+							<PreferencesDialog />
 							<Button
 								className="w-full flex gap-4 justify-start"
 								variant="ghost"

@@ -13,6 +13,7 @@ import {
 	SidebarMenuItem,
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { LogoutUser } from "@/lib/auth.ts";
 import { Lightning } from "@/routes/-index-header.tsx";
 import { Link } from "@tanstack/react-router";
 
@@ -41,6 +42,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 								</div>
 							</Link>
 						</SidebarMenuButton>
+						<button
+							type="button"
+							className="block md:hidden text-sm font-semibold text-primary"
+							onClick={LogoutUser}
+						>
+							Sign out
+						</button>
 					</SidebarMenuItem>
 				</SidebarMenu>
 			</SidebarHeader>

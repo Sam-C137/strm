@@ -34,6 +34,9 @@ export interface MarqueeAlbumItem {
 	artistName: string;
 }
 
+/**
+ * helpers
+ */
 export type CompoundQueryFlags = "default" | "suspense";
 export type CompoundQueryOptionArgs<
 	T extends Record<string, unknown>,
@@ -45,4 +48,8 @@ export type CompoundQueryOptionArgs<
 export type CompoundQueryOptions<T = unknown> = QueryOptions<T> & {
 	queryKey: readonly unknown[];
 	queryFn: UseSuspenseQueryOptions<T>["queryFn"];
+};
+
+export type StateWithSetter<T extends Record<string, unknown>> = T & {
+	[K in keyof T as `set${Capitalize<string & K>}`]: (value: T[K]) => void;
 };

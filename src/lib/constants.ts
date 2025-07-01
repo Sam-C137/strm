@@ -21,3 +21,13 @@ export const keys = {
 		SpotifyTokens: "spotify_tokens",
 	},
 } as const;
+
+export const DefaultColors = [
+	"#0085ff",
+	"#615fff",
+	"#f6339a",
+	"#fb2c36",
+	"#ff6900",
+	"#f0b100",
+	"#00bc7d",
+];

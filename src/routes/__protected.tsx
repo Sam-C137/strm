@@ -1,6 +1,9 @@
 import { AppSidebar } from "@/components/app-sidebar.tsx";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar.tsx";
-import { IsUserAuthorized } from "@/lib/auth.ts";
+import { TooltipProvider } from "@/components/ui/tooltip.tsx";
+import { useWatchUserPreferences } from "@/hooks/use-watch-user-preferences.ts";
+import { IsUserAuthorized, LogoutUser } from "@/lib/auth.ts";
+import { useUserSettings } from "@/lib/state/settings.ts";
 import { Lightning } from "@/routes/-index-header.tsx";
 import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
 
@@ -16,12 +19,16 @@ export const Route = createFileRoute("/__protected")({
 });
 
 function ProtectedLayout() {
+	const side = useUserSettings((state) => state.sidebarPosition);
+	useWatchUserPreferences();
 	return (
 		<SidebarProvider>
-			<AppSidebar className="p-0" />
+			<AppSidebar className="p-0" side={side} />
 			<main className="flex flex-col w-full">
 				<ProtectedHeader />
-				<Outlet />
+				<TooltipProvider>
+					<Outlet />
+				</TooltipProvider>
 			</main>
 		</SidebarProvider>
 	);
@@ -39,6 +46,7 @@ function ProtectedHeader() {
 			<button
 				type="button"
 				className="block md:hidden text-sm font-semibold text-primary"
+				onClick={LogoutUser}
 			>
 				Sign out
 			</button>
